@@ -7,7 +7,7 @@ menu = """
 
 => """
 
-saldo = 0
+dinheiro = 0
 limite = 500
 extrato = ""
 numeroSaques = 0
@@ -22,7 +22,7 @@ while True:
         print(f"Deposito de R${valor: .2f} realizado com sucesso!")
 
         if valor > 0:
-            saldo += valor
+            dinheiro += valor
             extrato += f"Depósito: R$ {valor: .2f}\n"
 
         else:
@@ -32,17 +32,17 @@ while True:
         valor = float(input("Informe o valor do saque: "))
         print(f"Saque de R${valor: .2f} realizado com sucesso!")
 
-        excedeu_saldo = valor > saldo
+        excedeuSaldo = valor > dinheiro
 
-        excedeu_limite = valor > limite
+        excedeuLimite = valor > limite
 
         excedeu_saques = numeroSaques >= limiteSaques
 
-        if excedeu_saldo:
+        if excedeuSaldo:
             print("Operação falhou! Você não tem saldo suficiente.\n")
-            print(f"Saldo atual é de: R${saldo: .2f}")
+            print(f"Saldo atual é de: R${dinheiro: .2f}")
 
-        elif excedeu_limite:
+        elif excedeuLimite:
             print(
                 f"Operação falhou! O valor do saque excede o limite permitido R${limite}.")
 
@@ -50,7 +50,7 @@ while True:
             print("Operação falhou! Número máximo de saques excedido.")
 
         elif valor > 0:
-            saldo -= valor
+            dinheiro -= valor
             extrato += f"Saque: R$ {valor: .2f}\n"
             numeroSaques += 1
 
@@ -60,7 +60,7 @@ while True:
     elif opcao == "3":
         print("\n********** EXTRATO ************")
         print("Não foram realizadas movimentações." if not extrato else extrato)
-        print(f"\nSaldo: R$ {saldo: .2f}")
+        print(f"\nSaldo: R$ {dinheiro: .2f}")
         print("*******************************")
 
     elif opcao == "0":
