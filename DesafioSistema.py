@@ -8,10 +8,10 @@ menu = """
 => """
 
 dinheiro = 0
-limite = 500
+limite = 1000
 extrato = ""
 numeroSaques = 0
-limiteSaques = 3
+limiteSaques = 5
 
 while True:
 
@@ -64,6 +64,7 @@ while True:
         print("*******************************")
 
     elif opcao == "0":
+        print("Saindo do app...\n")
         break
 
     else:
